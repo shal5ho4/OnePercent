@@ -28,10 +28,10 @@
       <div class="col-12 text-center">
         <form action="{% url 'query:check' %}" method="post">
           {% csrf_token %}
-          <input id="name" name="name" type="text" placeholder="※Name" class="tm-input" required />
-          <input id="email" name="email" type="email" placeholder="※Email" class="tm-input" required />
-          <input id="phone" name="phone" type="text" placeholder="TEL" class="tm-input">
-          <textarea id="text" name="text" rows="10" placeholder="※お問い合わせ内容" class="tm-input" required></textarea>
+          {{ form.name }}
+          {{ form.email }}
+          {{ form.phone }}
+          {{ form.text }}
           <button type="submit" class="btn tm-btn-submit col-lg-4" name="next" value="confirm">確認する</button>
         </form>
       </div>
