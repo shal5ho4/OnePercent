@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}お問い合わせ{% endblock %}
+
+{% block content%}
+<nav class="navbar navbar-expand-md tm-navbar" id="tmNav">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fas fa-bars navbar-toggler-icon"></i>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+          <a class="nav-link tm-nav-link" href="/">Home</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<section  class="tm-section-pad-top tm-parallax-2">
+  <div class="container tm-container-contact">
+    <div class="row">
+      <div class="text-center col-12">
+        <h2 class="tm-section-title mb-4">お問い合わせ内容</h2>
+        <p>
+          以下の内容で送信します。
+          <br>よろしければ送信を押してください。
+        </p>
+      </div>
+      <table  class="ui celled table table table-hover" >
+        <tr><td>Name:</td><td>{{ form.name.value }}</td></tr>
+        <tr><td>Email:</td><td>{{ form.email.value }}</td></tr>
+        <tr><td>Tel:</td><td>{{ form.phone.value }}</td></tr>
+        <tr><td>Text:</td><td>{{ form.text.value }}</td></tr>
+      </table>
+      <form action="{% url 'query:confirmation' %}" method="POST">
+        {% csrf_token %}
+        {% for field in form %}
+          {{ field.as_hidden }}
+        {% endfor %}
+        <button type="submit" class="btn btn-danger col-lg-5" name="next" value="create">送信</button>
+        <button type="submit" class="btn btn-danger col-lg-4" name="next" value="back">戻る</button>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock content %}
