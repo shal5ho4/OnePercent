@@ -19,7 +19,7 @@ body {
 }
 a {
   transition: all 0.3s ease;
-  color: #38B;
+  color: #3ba0dd;
 }
 
 a:hover,
@@ -56,7 +56,7 @@ blockquote {
 }
 
 .tm-text-primary {
-  color: #37A;
+  color: #3ba0dd;
 }
 
 .tm-font-big {
@@ -102,7 +102,7 @@ blockquote {
 }
 
 .tm-navbar.scroll .navbar-brand {
-  color: #369;
+  color: #3ba0dd;
 }
 
 .nav-item {
@@ -114,14 +114,14 @@ blockquote {
 }
 
 .tm-navbar.scroll .tm-nav-link {
-  color: #369;
+  color: #3ba0dd;
 }
 
 .tm-navbar.scroll .tm-nav-link:hover,
 .tm-navbar.scroll .tm-nav-link.current,
 .tm-nav-link:hover {
   color: #FFF;
-  background-color: #369;
+  background-color: #3ba0dd;
 }
 
 .navbar-toggler {
@@ -148,6 +148,7 @@ blockquote {
 #infinite {
 	background-color: #222;
   background-image: url(../img/01.jpg);
+  background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
   min-height: 375px;
@@ -265,7 +266,7 @@ blockquote {
 .tm-down-arrow {
   	color: #FFF;
     cursor: pointer;
-    background: #357;
+    background: #38B;
     padding: 15px 40px;
     transition: all 0.3s ease;
 }
@@ -273,7 +274,7 @@ blockquote {
 .tm-down-arrow:hover,
 .tm-down-arrow:focus {
   color: #FFF;
-  background: #37A;
+  background: #3ba0dd;
   padding: 20px 50px;
 }
 
@@ -294,7 +295,7 @@ blockquote {
 
 .tm-icon {
   display: block;
-  color: #37A;
+  color: #3ba0dd;
 }
 
 .tm-continue {
@@ -551,8 +552,10 @@ figure.effect-honey:hover h2 i {
   color: white;
   background-color: #212121;
   background-image: url(../img/02.jpg);
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  width: 100%;
   min-height: 780px;
   position: relative;
   padding-bottom: 50px;
@@ -595,7 +598,16 @@ figure.effect-honey:hover h2 i {
 	color: #fff;
 	background-color: #369;
 	width: 90%;
-	margin-bottom: 60px;
+	margin-bottom: 10px;
+  margin: auto;
+}
+
+.btn-danger {
+  font-size: 0.9em;
+  width: 90%;
+  margin-bottom: 10px;
+  text-align: center;
+  margin: auto;
 }
 
 .tm-btn-submit:hover {
@@ -732,4 +744,16 @@ p {
   .tm-gallery-item {
     margin: 0;
   }
+}
+
+#form {
+  color: white;
+  background-color: #212121;
+  background-image: url(../img/03.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 780px;
+  position: relative;
+  padding-bottom: 50px;
+  padding-top: 100px;
 }

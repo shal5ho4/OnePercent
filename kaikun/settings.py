@@ -18,7 +18,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'home.apps.HomeConfig',
-    'query.apps.QueryConfig'
+    'query.apps.QueryConfig',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -89,15 +90,28 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
 STATICFILES_DIRS = [str(os.path.join(BASE_DIR, 'static/'))]
+
 STATIC_ROOT = str(os.path.join(BASE_DIR, 'staticfiles/'))
+
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 ]
 
 MEDIA_URL = '/media/'
+
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+# Email Configuration
+
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'sharuru.test@gmail.com'
+EMAIL_PASSWORD = 'zjgrrtkufkxtxqxw'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 
 
 try:

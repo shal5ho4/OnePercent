@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from .forms import QueryForm
+from .tasks import query_received, line_notify
 
 def query_form(request):
+
   if request.method == 'POST':
     form = QueryForm(request.POST)
 
@@ -25,10 +27,14 @@ def query_form(request):
 
     elif request.POST.get('next', '') == 'create':
       form = QueryForm(request.POST)
-      form.save(commit=True)
+      query = form.save(commit=True)
       request.session.pop('input_data')
+      
       #メール処理
+      query_received.delay(query.id)
       #通知処理
+      line_notify.delay(query.id)
+
       return render(request, 'query/confirmation.html')
 
   else:

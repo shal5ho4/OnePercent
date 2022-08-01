@@ -7,10 +7,10 @@ class QueryForm(forms.ModelForm):
     fields = ['name', 'email', 'phone', 'text']
     widgets = {
       'name': forms.TextInput(
-        attrs={'class': 'tm-input', 'placeholder': 'Name'}
+        attrs={'class': 'tm-input', 'placeholder': '※Name'}
       ),
       'email': forms.TextInput(
-        attrs={'class': 'tm-input', 'placeholder': 'Email'}
+        attrs={'class': 'tm-input', 'placeholder': '※Email'}
       ),
       'phone': forms.TextInput(
         attrs={'class': 'tm-input', 'placeholder': 'Tel'}
@@ -18,7 +18,7 @@ class QueryForm(forms.ModelForm):
       'text': forms.Textarea(
         attrs={
           'class': 'tm-input', 
-          'placeholder': 'Text',
+          'placeholder': '※Text',
           'rows': 8
         }
       )
