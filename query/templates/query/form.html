@@ -1,34 +1,44 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}お問い合わせ{% endblock %}
 
-{% block content%}
-<nav class="navbar navbar-expand-md tm-navbar" id="tmNav">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <i class="fas fa-bars navbar-toggler-icon"></i>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-          <a class="nav-link tm-nav-link" href="/">Home</a>
-      </li>
-    </ul>
-  </div>
-</nav>
-<section id="form" class="tm-section-pad-top tm-parallax-2">
+{% block content %}
+
+<div class="form">
   <div class="container tm-container-contact">
     <div class="row">
-      <div class="text-center col-12">
-        <h2 class="tm-section-title mb-4">お問い合わせ</h2>
-        <p>
-          お問い合わせ内容を確認後、こちらから連絡差し上げます。
-          <br>※は必須項目です。
-        </p>
+      <div class="text-center text-break col-lg-12">
+        <h2 class="tm-section-title text-center mb-4">お問い合わせ</h2>
+          <p>
+            下記フォームへご入力ください。
+            <br>陸送依頼の方は、以下の情報を頂けますとスムーズに対応できます。
+          </p>
+          <p class="text-center">
+            ・お車の種類
+            <br>・お車の状態
+            <br>（大幅な構造変更等）
+            <br>・出発地と目的地
+            <br>・ご希望される日時
+          </p>
+          <p>
+            お問い合わせ内容を確認後、こちらから連絡差し上げます。
+          </p>
       </div>
+      
       <div class="col-12 text-center">
         <form action="{% url 'query:check' %}" method="post">
           {% csrf_token %}
           {{ form.name }}
+          {% if messages %}
+          <div class="shadow-custom messages alert alert-danger col-lg-6 mx-auto text-center">
+            {% for message in messages %}
+              {% if message.tags == 'error' %}
+                {{ message }}<a href="" class="close">x</a>
+              {% endif %}
+            {% endfor %}
+          </div>
+          {% endif %}
           {{ form.email }}
           {{ form.phone }}
           {{ form.text }}
@@ -37,6 +47,19 @@
       </div>
     </div>
   </div>
-</section>
+</div>
+
+<script src="{% static 'js/jquery-1.9.1.min.js' %}"></script>     
+<script src="{% static 'js/bootstrap.min.js' %}"></script> 
+<script>
+  // Detect window scroll and update navbar
+  $(window).scroll(function(e){          
+    if($(document).scrollTop() > 120) {
+      $('.tm-navbar').addClass("scroll");
+    } else {
+      $('.tm-navbar').removeClass("scroll");
+    }
+  });
+</script>
 
 {% endblock content %}

@@ -1,11 +1,25 @@
 import os
+from environs import Env
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
+# Environment Variables
+env = Env()
+env.read_env()
+
+
+DEBUG = env.bool('DEBUG', default=False)
+
+ALLOWED_HOSTS = ['.herokuapp.com', 'localhost', '127.0.0.1']
+
+SECRET_KEY = env.str('SECRET_KEY')
+
+DATABASES = {
+    'default': env.dj_db_url('DATABASE_URL')
+}
 
 
 # Application definition
@@ -20,7 +34,11 @@ INSTALLED_APPS = [
     'home.apps.HomeConfig',
     'query.apps.QueryConfig',
     'django_extensions',
+    'django.contrib.sites',
+    'django.contrib.sitemaps'
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -75,9 +93,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ja'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Tokyo'
 
 USE_I18N = True
 
@@ -104,17 +122,19 @@ MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
+
 # Email Configuration
 
-#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'sharuru.test@gmail.com'
-EMAIL_PASSWORD = 'zjgrrtkufkxtxqxw'
+EMAIL_HOST_USER = env.str('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = env.str('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
 
-try:
-    from .local_settings import *
-except ImportError:
-    pass
+# LINE Notification
+
+LINE_NOTIFY_TOKEN_1 = env.str('LINE_NOTIFY_TOKEN_1')
+LINE_NOTIFY_TOKEN_2 = env.str('LINE_NOTIFY_TOKEN_2')
+

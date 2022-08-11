@@ -1,27 +1,10 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block title %}One Percent{% endblock %}
+{% block title %}One Percent | 神奈川周辺のレッカーサービス{% endblock %}
 
 {% block content %}
 <section id="infinite" class="text-white tm-font-big tm-parallax">
-  <nav class="navbar navbar-expand-md tm-navbar" id="tmNav">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <i class="fas fa-bars navbar-toggler-icon"></i>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-            <a class="nav-link tm-nav-link" href="#infinite">Home</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link tm-nav-link" href="#about">About</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link tm-nav-link" href="#contact">Contact</a>
-        </li>                    
-      </ul>
-    </div>  
-  </nav>
   <div class="text-center tm-hero-text-container">
     <div class="tm-hero-text-container-inner">
       <p class="tm-hero-subtitle">
@@ -32,7 +15,7 @@
       <br>
       <h5>お急ぎの方はこちら</h5>
       <i class="fas fa-2x fa-phone-square mr-4"></i>
-      <span style="font-size: 30pt;font-weight:bold;">080-9558-0363</span>
+      <span style="font-size: 30pt;font-weight:bold;">080-4295-5233</span>
     </div>        
   </div>
 
@@ -69,7 +52,8 @@
         <h2 class="tm-text-primary mb-4">24時間365日</h2>
         <p class="mb-4 tm-intro-text">
           年中無休で対応いたします。
-          <br>関東全域出動します。
+          <br>関東全域はもちろん、
+          <br>全国各地どこでも出動します！
         </p>
       </div>
     </div>
@@ -80,8 +64,9 @@
       <div class="tm-intro-text-container">
         <h2 class="tm-text-primary mb-4">保険適応OK</h2>
         <p class="mb-4 tm-intro-text">
-          お客様でご加入の自動車保険レッカー特約がご利用いただけます。
-          <br>詳しくはお電話ください。
+          突然の事故や故障など、緊急のトラブルの際は
+          <br>お客様でご加入のレッカー特約がご利用可能です。
+          <br>各保険会社に対応しておりますので、お気軽にお問い合わせください！
         </p>
       </div>
     </div>
@@ -93,11 +78,12 @@
       </div>
       <div class="col-lg-5">
         <div class="tm-intro-text-container">
-          <h2 class="tm-text-primary mb-4">値段に自信あります</h2>
+          <h2 class="tm-text-primary mb-4">陸送手配もおまかせ！</h2>
           <p class="mb-4 tm-intro-text">
-            大手では実現できない低価格で陸送いたします。
-            <br>オークションや個人売買などにご利用ください。
-            <br>長距離も大丈夫です。
+            大手陸送では日数を要したり日時指定不可だったり…
+            <br>弊社なら当日〜翌日でお届け！時間指定もOK！
+            <br>オークション・個人売買・車検切れ車両のご移動など
+            <br>どんな車も運びます！長距離でもおまかせください！
           </p>  
         </div>
       </div>
@@ -107,10 +93,11 @@
       </div>
       <div class="col-lg-5">
         <div class="tm-intro-text-container">
-          <h2 class="tm-text-primary mb-4">カスタム車OK</h2>
+          <h2 class="tm-text-primary mb-4">カスタム車OK！</h2>
           <p class="mb-4 tm-intro-text">
-            シャコタン、ドリ車、大丈夫です。
-            <br>お気軽にお問い合わせください。
+            シャコタン、ドリ車など…柔軟に対応します。
+            <br>大幅な構造変更等、一部対応できない場合もありますので、
+            <br>まずはお気軽にお問い合わせください！
         </div>
       </div>
 
@@ -124,22 +111,144 @@
 <section id="contact" class="tm-section-pad-top tm-parallax-2">
 
 <div class="container tm-container-contact">
-  
   <div class="row">
-      
-      <div class="text-center col-12">
-          <h2 class="tm-section-title mb-5">Contact</h2>
-      </div>
-      <div class="text-center col-12">
-        <p class="md-5">
-          オークションや個人売買等での陸送の依頼承ります。
-          <br>大手では実現できない低価格で輸送いたします。
-          <br>料金のお見積りなど、詳しくは下記リンクよりお問い合わせください。
-        </p>
-        <br>
-        <a href="{% url 'query:create' %}" class="btn tm-btn-submit col-lg-5">問い合わせしてみる</a>
-      </div>       
-  </div><!-- row ending -->
-  
+    <div class="text-center col-12">
+      <h2 class="tm-section-title mb-5">Contact</h2>
+    </div>
+    <div class="text-center col-12">
+      <p class="md-5">
+        各種お問い合わせはこちらから。
+        <br>大手では実現できない柔軟な対応、最短翌日配送でスピーディにお届け。
+        <br>ご不明点や料金のお見積りなど、お気軽にお問い合わせください！
+      </p>
+      <br>
+      <a href="{% url 'query:create' %}" class="btn tm-btn-submit col-lg-4">問い合わせしてみる</a>
+    </div>
+  </div>
 </div>
+
+<footer class="text-center small tm-footer">
+  <p class="mb-0" style="font-size: small;">
+    Copyright &copy; 2022 One Percent Ltd.
+    <br>Designed by Ryotaro.K
+  </p>
+</footer>
+
+</section>
+<script src="{% static 'js/jquery-1.9.1.min.js' %}"></script>     
+<script src="{% static 'slick/slick.min.js' %}"></script>
+<script src="{% static 'magnific-popup/jquery.magnific-popup.min.js' %}"></script>
+<script src="{% static 'js/easing.min.js' %}"></script>
+<script src="{% static 'js/jquery.singlePageNav.min.js' %}"></script>     
+<script src="{% static 'js/bootstrap.min.js' %}"></script> 
+<script>
+
+  function getOffSet(){
+    var _offset = 450;
+    var windowHeight = window.innerHeight;
+
+    if(windowHeight > 500) {
+      _offset = 400;
+    } 
+    if(windowHeight > 680) {
+      _offset = 300
+    }
+    if(windowHeight > 830) {
+      _offset = 210;
+    }
+
+    return _offset;
+  }
+
+  function setParallaxPosition($doc, multiplier, $object){
+    var offset = getOffSet();
+    var from_top = $doc.scrollTop(),
+      bg_css = 'bottom ' +(multiplier * from_top - offset) + 'px';
+    $object.css({"background-position" : bg_css });
+  }
+
+  // Parallax function
+  // Adapted based on https://codepen.io/roborich/pen/wpAsm        
+  var background_image_parallax = function($object, multiplier, forceSet){
+    multiplier = typeof multiplier !== 'undefined' ? multiplier : 0.5;
+    multiplier = 1 - multiplier;
+    var $doc = $(document);
+    $object.css({"background-attatchment" : "fixed"});
+
+    if(forceSet) {
+      setParallaxPosition($doc, multiplier, $object);
+    } else {
+      $(window).scroll(function(){          
+        setParallaxPosition($doc, multiplier, $object);
+      });
+    }
+  };
+
+  var background_image_parallax_2 = function($object, multiplier){
+    multiplier = typeof multiplier !== 'undefined' ? multiplier : 0.5;
+    multiplier = 1 - multiplier;
+    var $doc = $(document);
+    $object.css({"background-attachment" : "fixed"});
+    
+    $(window).scroll(function(){
+      if($(window).width() > 768) {
+        var firstTop = $object.offset().top,
+            pos = $(window).scrollTop(),
+            yPos = Math.round((multiplier * (firstTop - pos)) - 186);              
+
+        var bg_css = 'center ' + yPos + 'px';
+
+        $object.css({"background-position" : 'bottom' });
+      } else {
+        $object.css({"background-position" : 'center' });
+      }
+    });
+  };
+  
+  $(function(){
+    // Hero Section - Background Parallax
+    background_image_parallax($(".tm-parallax"), 0.30, false);
+    background_image_parallax_2($("#contact"), 0.80);   
+    background_image_parallax_2($("#infinite"), 0.80);   
+    
+    // Handle window resize
+    window.addEventListener('resize', function(){
+      background_image_parallax($(".tm-parallax"), 0.30, true);
+    }, true);
+
+    // Detect window scroll and update navbar
+    $(window).scroll(function(e){          
+      if($(document).scrollTop() > 120) {
+        $('.tm-navbar').addClass("scroll");
+      } else {
+        $('.tm-navbar').removeClass("scroll");
+      }
+    });
+    
+    // Close mobile menu after click 
+    $('#tmNav a').on('click', function(){
+      $('.navbar-collapse').removeClass('show'); 
+    })
+
+    // Scroll to corresponding section with animation
+    $('#tmNav').singlePageNav({
+      'easing': 'easeInOutExpo',
+      'speed': 600
+    });
+  });      
+
+  $("a").on('click', function(event) {
+    if (this.hash !== "") {
+      event.preventDefault();
+      var hash = this.hash;
+
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 600, 'easeInOutExpo', function(){
+        window.location.hash = hash;
+      });
+    }
+  });
+</script>
+
 {% endblock content %}
