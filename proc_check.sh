@@ -1,17 +1,19 @@
 #!/bin/bash
   
 proc1="/usr/sbin/rabbitmq-server"
-proc2="celery"
+proc2="/home/onepercentadmin/django_projects/OnePercent/env/bin/celery"
+proc3="/usr/sbin/nginx"
 
 count1=$(ps ax -o command | grep "$proc1" | grep -v "^grep" | wc -l)
-count2=$(ps ax | grep "$proc2" | wc -l)
+count2=$(ps ax -o command | grep "$proc2" | grep -v "^grep" | wc -l)
+count3=$(ps ax -o command | grep "$proc3" | grep -v "^grep" | wc -l)
 
-if [ "$count1" -eq 0 ]; then
-    echo "[ERROR] process $proc1 has been down" >&2
-    /home/onepercentadmin/django_projects/OnePercent/alert.sh "[ERROR] process $proc1 has been down"
-fi
+for ((i=1; i<=3; i++)); do
+    proc="proc${i}"
+    count="count${i}"
 
-if [ "$count2" -lt 2 ] ; then
-        echo "[ERROR] process $proc2 is down" >&2
-        /home/onepercentadmin/django_projects/OnePercent/alert.sh "[ERROR] process $proc2 has been down"
-fi
+    if [ ${!count} -eq 0 ]; then
+        echo "[ERROR] process $proc is down" >&2
+        /home/onepercentadmin/alert.sh "[ERROR] process $proc has been down"
+    fi
+done
