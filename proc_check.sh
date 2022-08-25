@@ -2,8 +2,8 @@
   
 proc1="/usr/sbin/rabbitmq-server"
 proc2="/usr/sbin/nginx"
-proc3="/home/onepercentadmin/django_projects/OnePercent/env/bin/celery"
-proc4="/home/onepercentadmin/django_projects/OnePercent/env/bin/gunicorn"
+proc3=""
+proc4=""
 
 
 for ((i=1; i<=4; i++)); do
