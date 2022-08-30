@@ -1,3 +1,4 @@
+
 import os
 from environs import Env
 
@@ -18,7 +19,13 @@ ALLOWED_HOSTS = ['.herokuapp.com', 'localhost', '127.0.0.1']
 SECRET_KEY = env.str('SECRET_KEY')
 
 DATABASES = {
-    'default': env.dj_db_url('DATABASE_URL')
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'onepercent',
+        'USER': env.str('DB_USER'),
+        'PASSWORD': env.str('DB_PASSWORD'),
+        'HOST': 'localhost'
+    }
 }
 
 
